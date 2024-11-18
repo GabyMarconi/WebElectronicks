@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBVentasElectronicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="CategoriaID" />
+    </Key>
+    <Property Name="CategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Categ__3B75D760" FromRole="Categorias" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="ClienteID" />
+    </Key>
+    <Property Name="ClienteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DireccionesEnvios" Relationship="Self.FK__Direccion__Clien__5441852A" FromRole="Clientes" ToRole="DireccionesEnvio" />
+    <NavigationProperty Name="Pedidos" Relationship="Self.FK__Pedidos__Cliente__46E78A0C" FromRole="Clientes" ToRole="Pedidos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__Client__4316F928" FromRole="Clientes" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="DetallePedido">
+    <Key>
+      <PropertyRef Name="DetallePedidoID" />
+    </Key>
+    <Property Name="DetallePedidoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Subtotal" Type="Decimal" Precision="29" Scale="2" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK__DetallePe__Pedid__4BAC3F29" FromRole="DetallePedidos" ToRole="Pedidos" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__DetallePe__Produ__4CA06362" FromRole="DetallePedidos" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="DireccionesEnvio">
+    <Key>
+      <PropertyRef Name="DireccionEnvioID" />
+    </Key>
+    <Property Name="DireccionEnvioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Provincia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Direccion__Clien__5441852A" FromRole="DireccionesEnvio" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="MetodoPagoID" />
+    </Key>
+    <Property Name="MetodoPagoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MetodoPago1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EstadoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaPago" Type="DateTime" Precision="3" />
+    <Property Name="Detalles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK__MetodoPag__Pedid__4F7CD00D" FromRole="MetodoPago" ToRole="Pedidos" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="PedidoID" />
+    </Key>
+    <Property Name="PedidoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaPedido" Type="DateTime" Precision="3" />
+    <Property Name="EstadoPedido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Pedidos__Cliente__46E78A0C" FromRole="Pedidos" ToRole="Clientes" />
+    <NavigationProperty Name="DetallePedidos" Relationship="Self.FK__DetallePe__Pedid__4BAC3F29" FromRole="Pedidos" ToRole="DetallePedidos" />
+    <NavigationProperty Name="MetodoPagoes" Relationship="Self.FK__MetodoPag__Pedid__4F7CD00D" FromRole="Pedidos" ToRole="MetodoPago" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ProductoID" />
+    </Key>
+    <Property Name="ProductoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Productos__Categ__3B75D760" FromRole="Productos" ToRole="Categorias" />
+    <NavigationProperty Name="DetallePedidos" Relationship="Self.FK__DetallePe__Produ__4CA06362" FromRole="Productos" ToRole="DetallePedidos" />
+    <NavigationProperty Name="Proveedore" Relationship="Self.FK__Productos__Prove__3C69FB99" FromRole="Productos" ToRole="Proveedores" />
+  </EntityType>
+  <EntityType Name="Proveedore">
+    <Key>
+      <PropertyRef Name="ProveedorID" />
+    </Key>
+    <Property Name="ProveedorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactoNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Prove__3C69FB99" FromRole="Proveedores" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioID" />
+    </Key>
+    <Property Name="UsuarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Usuarios__Client__4316F928" FromRole="Usuarios" ToRole="Clientes" />
+  </EntityType>
+  <Association Name="FK__Productos__Categ__3B75D760">
+    <End Role="Categorias" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Productos" Type="Self.Producto" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__Direccion__Clien__5441852A">
+    <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="DireccionesEnvio" Type="Self.DireccionesEnvio" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__Pedidos__Cliente__46E78A0C">
+    <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Pedidos" Type="Self.Pedido" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__Usuarios__Client__4316F928">
+    <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__DetallePe__Pedid__4BAC3F29">
+    <End Role="Pedidos" Type="Self.Pedido" Multiplicity="0..1" />
+    <End Role="DetallePedidos" Type="Self.DetallePedido" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__DetallePe__Produ__4CA06362">
+    <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="DetallePedidos" Type="Self.DetallePedido" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__MetodoPag__Pedid__4F7CD00D">
+    <End Role="Pedidos" Type="Self.Pedido" Multiplicity="0..1" />
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__Productos__Prove__3C69FB99">
+    <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="0..1" />
+    <End Role="Productos" Type="Self.Producto" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="DBVentasElectronicaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="DetallePedidos" EntityType="Self.DetallePedido" />
+    <EntitySet Name="DireccionesEnvios" EntityType="Self.DireccionesEnvio" />
+    <EntitySet Name="MetodoPagoes" EntityType="Self.MetodoPago" />
+    <EntitySet Name="Pedidos" EntityType="Self.Pedido" />
+    <EntitySet Name="Productos" EntityType="Self.Producto" />
+    <EntitySet Name="Proveedores" EntityType="Self.Proveedore" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Productos__Categ__3B75D760" Association="Self.FK__Productos__Categ__3B75D760">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Direccion__Clien__5441852A" Association="Self.FK__Direccion__Clien__5441852A">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="DireccionesEnvio" EntitySet="DireccionesEnvios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pedidos__Cliente__46E78A0C" Association="Self.FK__Pedidos__Cliente__46E78A0C">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuarios__Client__4316F928" Association="Self.FK__Usuarios__Client__4316F928">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetallePe__Pedid__4BAC3F29" Association="Self.FK__DetallePe__Pedid__4BAC3F29">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="DetallePedidos" EntitySet="DetallePedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetallePe__Produ__4CA06362" Association="Self.FK__DetallePe__Produ__4CA06362">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="DetallePedidos" EntitySet="DetallePedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MetodoPag__Pedid__4F7CD00D" Association="Self.FK__MetodoPag__Pedid__4F7CD00D">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="MetodoPago" EntitySet="MetodoPagoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Productos__Prove__3C69FB99" Association="Self.FK__Productos__Prove__3C69FB99">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

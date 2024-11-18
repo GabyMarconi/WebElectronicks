@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08652edafa484fcb9cec6eb052ace766" Name="Diagram1">
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.Categoria" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.Cliente" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.DetallePedido" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.DireccionesEnvio" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.MetodoPago" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.Pedido" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.Producto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.Proveedore" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentasElectronicaModel.Usuario" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__Productos__Categ__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__Direccion__Clien__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__Pedidos__Cliente__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__Usuarios__Client__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__DetallePe__Pedid__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__DetallePe__Produ__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__MetodoPag__Pedid__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentasElectronicaModel.FK__Productos__Prove__3C69FB99" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

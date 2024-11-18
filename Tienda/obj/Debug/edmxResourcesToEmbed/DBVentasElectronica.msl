@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBVentasElectronicaModelStoreContainer" CdmEntityContainer="DBVentasElectronicaEntities1">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.Categoria">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.Cliente">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetallePedidos">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.DetallePedido">
+        <MappingFragment StoreEntitySet="DetallePedidos">
+          <ScalarProperty Name="DetallePedidoID" ColumnName="DetallePedidoID" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DireccionesEnvios">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.DireccionesEnvio">
+        <MappingFragment StoreEntitySet="DireccionesEnvio">
+          <ScalarProperty Name="DireccionEnvioID" ColumnName="DireccionEnvioID" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MetodoPagoes">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.MetodoPago">
+        <MappingFragment StoreEntitySet="MetodoPago">
+          <ScalarProperty Name="MetodoPagoID" ColumnName="MetodoPagoID" />
+          <ScalarProperty Name="MetodoPago1" ColumnName="MetodoPago" />
+          <ScalarProperty Name="EstadoPago" ColumnName="EstadoPago" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedidos">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="PedidoID" ColumnName="PedidoID" />
+          <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+          <ScalarProperty Name="EstadoPedido" ColumnName="EstadoPedido" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.Producto">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedores">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.Proveedore">
+        <MappingFragment StoreEntitySet="Proveedores">
+          <ScalarProperty Name="ProveedorID" ColumnName="ProveedorID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ContactoNombre" ColumnName="ContactoNombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DBVentasElectronicaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK__Productos__Categ__3B75D760" TypeName="DBVentasElectronicaModel.FK__Productos__Categ__3B75D760" StoreEntitySet="Productos">
+      <EndProperty Name="Categorias">
+        <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+      </EndProperty>
+      <EndProperty Name="Productos">
+        <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="CategoriaID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__Direccion__Clien__5441852A" TypeName="DBVentasElectronicaModel.FK__Direccion__Clien__5441852A" StoreEntitySet="DireccionesEnvio">
+      <EndProperty Name="Clientes">
+        <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+      </EndProperty>
+      <EndProperty Name="DireccionesEnvio">
+        <ScalarProperty Name="DireccionEnvioID" ColumnName="DireccionEnvioID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="ClienteID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__Pedidos__Cliente__46E78A0C" TypeName="DBVentasElectronicaModel.FK__Pedidos__Cliente__46E78A0C" StoreEntitySet="Pedidos">
+      <EndProperty Name="Clientes">
+        <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+      </EndProperty>
+      <EndProperty Name="Pedidos">
+        <ScalarProperty Name="PedidoID" ColumnName="PedidoID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="ClienteID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__Usuarios__Client__4316F928" TypeName="DBVentasElectronicaModel.FK__Usuarios__Client__4316F928" StoreEntitySet="Usuarios">
+      <EndProperty Name="Clientes">
+        <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+      </EndProperty>
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="ClienteID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__DetallePe__Pedid__4BAC3F29" TypeName="DBVentasElectronicaModel.FK__DetallePe__Pedid__4BAC3F29" StoreEntitySet="DetallePedidos">
+      <EndProperty Name="Pedidos">
+        <ScalarProperty Name="PedidoID" ColumnName="PedidoID" />
+      </EndProperty>
+      <EndProperty Name="DetallePedidos">
+        <ScalarProperty Name="DetallePedidoID" ColumnName="DetallePedidoID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="PedidoID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__DetallePe__Produ__4CA06362" TypeName="DBVentasElectronicaModel.FK__DetallePe__Produ__4CA06362" StoreEntitySet="DetallePedidos">
+      <EndProperty Name="Productos">
+        <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+      </EndProperty>
+      <EndProperty Name="DetallePedidos">
+        <ScalarProperty Name="DetallePedidoID" ColumnName="DetallePedidoID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="ProductoID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__MetodoPag__Pedid__4F7CD00D" TypeName="DBVentasElectronicaModel.FK__MetodoPag__Pedid__4F7CD00D" StoreEntitySet="MetodoPago">
+      <EndProperty Name="Pedidos">
+        <ScalarProperty Name="PedidoID" ColumnName="PedidoID" />
+      </EndProperty>
+      <EndProperty Name="MetodoPago">
+        <ScalarProperty Name="MetodoPagoID" ColumnName="MetodoPagoID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="PedidoID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__Productos__Prove__3C69FB99" TypeName="DBVentasElectronicaModel.FK__Productos__Prove__3C69FB99" StoreEntitySet="Productos">
+      <EndProperty Name="Proveedores">
+        <ScalarProperty Name="ProveedorID" ColumnName="ProveedorID" />
+      </EndProperty>
+      <EndProperty Name="Productos">
+        <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="ProveedorID" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
